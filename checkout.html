@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout</title>
+</head>
+
+<body>
+
+<h2>Checkout Result</h2>
+
+<p id="result"></p>
+
+<script>
+
+let params = new URLSearchParams(window.location.search);
+
+let name = params.get("name");
+let apple = Number(params.get("Undshirt"));
+let bread = Number(params.get("Sweatpants"));
+let money = Number(params.get("money"));
+
+let Undshirt = 150;
+let Sweatpants = 200;
+
+let total = (Undshirt * UndshirtPrice) + (bread * breadPrice);
+
+let output = "Hello " + name + "<br>";
+output += "Total Cost: ₱" + total + "<br>";
+
+if(money >= total){
+    let change = money - total;
+    output += "Your Change: ₱" + change;
+}else{
+    output += "Sorry, you do not have enough money.";
+}
+
+document.getElementById("result").innerHTML = output;
+
+</script>
+
+</body>
+</html>

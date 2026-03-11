@@ -1,13 +1,27 @@
-const QUERY = window.location.search;
-const PARAMS = new URLSearchParams(QUERY);
+window.onload = function() {
 
-function processData() {
-    let student = PARAMS.get("student");
-    document.getElementById("greetings").innerText=`Hello, ${student}!`;
+let params = new URLSearchParams(window.location.search);
 
-    let socks = PARAMS.get("socks");
-    document.getElementById("socks").innertext =`how many socks do you want ${socks}`;
+let name = params.get("name");
+let undershirt = Number(params.get("undershirt"));
+let sweatpants = Number(params.get("sweatpants"));
+let money = Number(params.get("money"));
 
-    let ball = PARAMS.get("ball");
-    document.getElementById("ball").innertext =`how many balls do you want ${ball}`;
+let undershirtPrice = 200;
+let sweatpantsPrice = 350;
+
+let total = (undershirt * undershirtPrice) + (sweatpants * sweatpantsPrice);
+
+let output = "Hello " + name + "<br>";
+output += "Total Cost: ₱" + total + "<br>";
+
+if (money >= total) {
+    let change = money - total;
+    output += "Your Change: ₱" + change;
+} else {
+    output += "Sorry, you do not have enough money.";
 }
+
+document.getElementById("result").innerHTML = output;
+
+};

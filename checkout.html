@@ -1,27 +1,16 @@
-window.onload = function() {
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout</title>
+</head>
 
-let params = new URLSearchParams(window.location.search);
+<body>
 
-let name = params.get("name");
-let undershirt = Number(params.get("undershirt"));
-let sweatpants = Number(params.get("sweatpants"));
-let money = Number(params.get("money"));
+<h2>Checkout Result</h2>
 
-let undershirtPrice = 200;
-let sweatpantsPrice = 350;
+<p id="result"></p>
 
-let total = (undershirt * undershirtPrice) + (sweatpants * sweatpantsPrice);
+<script src="checkout.js"></script>
 
-let output = "Hello " + name + "<br>";
-output += "Total Cost: ₱" + total + "<br>";
-
-if (money >= total) {
-    let change = money - total;
-    output += "Your Change: ₱" + change;
-} else {
-    output += "Sorry, you do not have enough money.";
-}
-
-document.getElementById("result").innerHTML = output;
-
-}
+</body>
+</html
